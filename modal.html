@@ -1,0 +1,54 @@
+<!-- This modal contains a form that creates a given record. The DateTime field uses the bootstrap-datetimepicker JS addon -->
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create Survey</h4>
+            </div>
+
+
+
+            @using (Html.BeginForm("Create", "Survey"))
+
+            {
+                <!-- AntiForgeryToken to prevent attacks -->
+                @Html.AntiForgeryToken()
+                @*Modal Body*@
+                <div class="modal-body">
+                    <div class="form-group">
+                        @Html.LabelFor((m => m.Name))
+                        @Html.TextBoxFor((m => m.Name), new { @class = "form-control", autofocus = "autofocus" })
+                        @Html.ValidationMessageFor(m => m.Name)
+                    </div>
+
+                    @*DateTime*@
+                    <div class="row">
+                        <div class='col-sm-6'>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.DateTime)
+                                @Html.TextBoxFor((m => m.DateTime), new { @class = "form-control", @id = "datetimepicker4" })
+                                @Html.ValidationMessageFor(m => m.DateTime)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.STypeInt, "Type")
+                        @Html.DropDownListFor(m => m.STypeInt, new SelectList(Model.STypes, "ID", "Name"), " ", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.STypeInt)
+                    </div>
+                </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+            }
+        </div>
+    </div>
+</div>
