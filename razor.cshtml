@@ -1,0 +1,2 @@
+@*Setting navbar item as "Active"*@
+<li class="@(ViewContext.RouteData.Values["controller"].ToString() == "ControllerNameHere" ? "active" : "")">@Html.ActionLink("CustomTitleName", "ActionName", "ControllerName", new { area = "" }, new { @id = "someUniqueCSSID" })</li>
