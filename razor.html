@@ -1,2 +1,18 @@
 @*Setting navbar item as "Active"*@
 <li class="@(ViewContext.RouteData.Values["controller"].ToString() == "ControllerNameHere" ? "active" : "")">@Html.ActionLink("CustomTitleName", "ActionName", "ControllerName", new { area = "" }, new { @id = "someUniqueCSSID" })</li>
+
+
+<!-- SEMANTIC UI Tab menu -->
+
+<div class="ui fixed inverted pointing menu">
+  <div class="ui container">
+    <a href="#" id="sqm-logo" class="ui medium image">
+      <img src="~/Content/images/SQM_Logo.svg">
+    </a>
+  @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = (ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active item" : "item") })
+  @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = (ViewContext.RouteData.Values["action"].ToString() == "About" ? "active item" : "item") })
+  @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = (ViewContext.RouteData.Values["action"].ToString() == "Contact" ? "active item" : "item") })
+  @Html.Partial("_LoginPartial")
+</div>
+  
+  
