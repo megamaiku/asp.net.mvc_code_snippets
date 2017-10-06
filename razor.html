@@ -1,3 +1,5 @@
+<!-- Using Action Links in navbars (Semantic UI) -->
+
 @*Setting navbar item as "Active"*@
 <li class="@(ViewContext.RouteData.Values["controller"].ToString() == "ControllerNameHere" ? "active" : "")">@Html.ActionLink("CustomTitleName", "ActionName", "ControllerName", new { area = "" }, new { @id = "someUniqueCSSID" })</li>
 
@@ -6,8 +8,8 @@
 
 <div class="ui fixed inverted pointing menu">
   <div class="ui container">
-    <a href="#" id="sqm-logo" class="ui medium image">
-      <img src="~/Content/images/SQM_Logo.svg">
+    <a href="#" id="some-logo" class="ui medium image">
+      <img src="~/Content/images/SOME_Logo.svg">
     </a>
   @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = (ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active item" : "item") })
   @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = (ViewContext.RouteData.Values["action"].ToString() == "About" ? "active item" : "item") })
